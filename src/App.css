@@ -28,6 +28,21 @@ body
   margin-top: 10px;
 }
 
+#user-input #button-container
+{
+  text-align: center;
+}
+
+#user-input #submit-button 
+{
+  background-color: #1363DF;
+  color: #DFF6FF;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 15px;
+}
+
 .user-input-container
 {
   display: flex;
@@ -57,7 +72,7 @@ body
 
 .user-input-container input:focus
 {
-  outline-color: #47B5FF;
+  outline-color: #1363DF;
 }
 
 /* ShowData component */

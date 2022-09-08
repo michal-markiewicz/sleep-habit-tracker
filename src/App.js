@@ -1,18 +1,40 @@
+import { useState } from 'react';
 import './App.css';
 
 function App()
 {
+  
+  const [savedDays, setSavedDays] = useState([]);
+
   return (
     <div id="app">
       <h1>Sleep habit tracker</h1>
-        <UserInput />
+        <UserInput savedDays={savedDays} setSavedDays={setSavedDays} />
         <ShowData />
     </div>
   );
 }
 
-function UserInput()
+function UserInput({savedDays, setSavedDays})
 {
+  function submitData()
+  {
+    const date = document.getElementById('user-input-date');
+    const relaxTime = document.getElementById('user-input-relax-time');
+    const sleepTime = document.getElementById('user-input-sleep-time');
+    const wakeTime = document.getElementById('user-input-wake-time');
+
+    const day = {
+      date: date.value,
+      relaxTime: relaxTime.value,
+      sleepTime: sleepTime.value,
+      wakeTime: wakeTime.value
+    }
+
+    savedDays.push(day);
+    setSavedDays(savedDays);
+  }
+
   return (
     <div id="user-input">
       <div className="user-input-container">
@@ -33,6 +55,10 @@ function UserInput()
       <div className="user-input-container">
         <label htmlFor="user-input-wake-time">Wake up time</label>
         <input type="text" id="user-input-wake-time"></input>
+      </div>
+
+      <div id="button-container">
+        <button id="submit-button" onClick={submitData}>Submit</button>
       </div>
     </div>
   );
