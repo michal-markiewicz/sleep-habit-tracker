@@ -1,3 +1,10 @@
+body 
+{
+  background-color: #06283D;
+  color: #DFF6FF;
+  font-family: 'Open Sans', sans-serif;
+}
+
 /* App component */
 
 #app 
@@ -8,10 +15,72 @@
   flex-direction: column;
 }
 
+#app h1 
+{
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* UserInput component */
+
+#user-input
+{
+  margin-top: 10px;
+}
+
+.user-input-container
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-input-container:not(:first-child) label
+{
+  margin-top: 10px;
+}
+
+.user-input-container label
+{
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.user-input-container input 
+{
+  margin-top: 3px;
+  width: 150px;
+  background-color: #DFF6FF;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+}
+
+.user-input-container input:focus
+{
+  outline-color: #47B5FF;
+}
+
 /* ShowData component */
 
 #show-data 
 {
   display: flex;
-  gap: 50px;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+#show-data h2 
+{
+  font-size: 1.2rem;
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+#show-data b 
+{
+  font-size: 1.6rem;
+  font-weight: 300;
 }
