@@ -66,12 +66,12 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
     const avgFormula = sumOfMinutes / hoursMinutesArray.length;
     const convertToHours = avgFormula / 60;
 
-    const hoursAfterCalc = Math.round(((convertToHours % 1) * 60));
-    const formatMinutes = formatNumberToTwoDigits(hoursAfterCalc);
-    const minutesAfterCalc = convertToHours - (convertToHours % 1);
-    const formatHours = formatNumberToTwoDigits(minutesAfterCalc);
+    const minutesAfterCalc = Math.round(((convertToHours % 1) * 60));
+    const formatMinutes = formatNumberToTwoDigits(minutesAfterCalc);
+    const hoursAfterCalc = convertToHours - (convertToHours % 1);
+    const formatHours = formatNumberToTwoDigits(hoursAfterCalc);
 
-    const result = `${formatMinutes}:${formatHours}`;
+    const result = `${formatHours}:${formatMinutes}`;
     return result;
   }
 

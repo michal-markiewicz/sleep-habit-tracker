@@ -15,8 +15,11 @@ function App()
   return (
     <div id="app">
       <h1>Sleep habit tracker</h1>
+      <p>Add data about your sleep habits and get access to personalized analysis.</p>
+      <div class="flexbox-container">
         <UserInput savedDays={savedDays} setSavedDays={setSavedDays} setAvgRelaxTime={setAvgRelaxTime} setAvgSleepTime={setAvgSleepTime} setAvgWakeTime={setAvgWakeTime} />
         <ShowData avgRelaxTime={avgRelaxTime} avgSleepTime={avgSleepTime} avgWakeTime={avgWakeTime} />
+      </div>
     </div>
   );
 }

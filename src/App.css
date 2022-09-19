@@ -13,12 +13,26 @@ body
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 30px;
 }
 
 #app h1 
 {
   font-size: 1.8rem;
   font-weight: 600;
+  margin: 0;
+}
+
+#app p 
+{
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
 }
 
 /* UserInput component */
@@ -41,6 +55,13 @@ body
   border-radius: 3px;
   padding: 10px 20px 10px 20px;
   margin-top: 15px;
+  cursor: pointer;
+  transition: 120ms ease-in-out;
+}
+
+#user-input #submit-button:hover
+{
+  opacity: 0.7;
 }
 
 .user-input-container
@@ -98,4 +119,32 @@ body
 {
   font-size: 1.6rem;
   font-weight: 300;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 1000px)
+{
+  .flexbox-container
+  {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-top: 30px;
+  }
+
+  #user-input
+  {
+    margin-top: 0px;
+  }
+
+  #show-data
+  {
+    margin: 0px;
+  }
+
+  #show-data h2 
+  {
+    margin-top: 0px;
+  }
 }
