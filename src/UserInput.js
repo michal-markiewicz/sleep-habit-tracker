@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleepTime, setAvgWakeTime})
 {
   function submitData()
@@ -63,11 +65,26 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
     const sumOfMinutes = (hours * 60) + minutes;
     const avgFormula = sumOfMinutes / hoursMinutesArray.length;
     const convertToHours = avgFormula / 60;
-    const getMinutes = ((convertToHours % 1) * 60).toFixed(2);
-    const getHours = convertToHours - (convertToHours % 1);
-    const result = `${getHours}:${getMinutes}`;
-    
+
+    const hoursAfterCalc = Math.round(((convertToHours % 1) * 60));
+    const formatMinutes = formatNumberToTwoDigits(hoursAfterCalc);
+    const minutesAfterCalc = convertToHours - (convertToHours % 1);
+    const formatHours = formatNumberToTwoDigits(minutesAfterCalc);
+
+    const result = `${formatMinutes}:${formatHours}`;
     return result;
+  }
+
+  function formatNumberToTwoDigits(num)
+  {
+    let str = num.toString();
+
+    if (str.length === 1)
+    {
+      str = "0" + str;
+    }
+
+    return str;
   }
 
   function saveDaysInLocalStorage(savedDaysArray)
@@ -75,6 +92,10 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
     const savedDaysArrayJson = JSON.stringify(savedDaysArray);
     localStorage.setItem("savedDays", savedDaysArrayJson);
   }
+
+  useEffect(() => {
+    calculateEveryAvg();
+  })
 
   return (
     <div id="user-input">

@@ -5,8 +5,8 @@ import './App.css';
 
 function App()
 {
-  const savedDaysFromLocalStorage = JSON.parse(localStorage.getItem("savedDays"));
-  const [savedDays, setSavedDays] = useState(savedDaysFromLocalStorage === null ? [] : savedDaysFromLocalStorage);
+  const daysSavedInLocalStorage = JSON.parse(localStorage.getItem("savedDays"));
+  const [savedDays, setSavedDays] = useState(daysSavedInLocalStorage === null ? [] : daysSavedInLocalStorage);
 
   const [avgRelaxTime, setAvgRelaxTime] = useState(null);
   const [avgSleepTime, setAvgSleepTime] = useState(null);
