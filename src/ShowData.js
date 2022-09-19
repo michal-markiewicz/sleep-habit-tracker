@@ -1,42 +1,40 @@
-import { useState } from 'react';
-
-export function ShowData({avgRelaxTimeCalculated, avgSleepTimeCalculated, avgWakeTimeCalculated})
+export function ShowData({avgRelaxTime, avgSleepTime, avgWakeTime})
 {
   return (
     <div id="show-data">
-      <AvgRelaxTime avgRelaxTimeCalculated={avgRelaxTimeCalculated} />
-      <AvgSleepTime avgSleepTimeCalculated={avgSleepTimeCalculated}/>
-      <AvgWakeTime avgWakeTimeCalculated={avgWakeTimeCalculated}/>
+      <AvgRelaxTime avgRelaxTime={avgRelaxTime} />
+      <AvgSleepTime avgSleepTime={avgSleepTime}/>
+      <AvgWakeTime avgWakeTime={avgWakeTime}/>
     </div>
   );
 }
 
-function AvgRelaxTime({avgRelaxTimeCalculated})
+function AvgRelaxTime({avgRelaxTime})
 {
   return (
     <div>
       <h2>Avg Relax Time</h2>
-      <b>{avgRelaxTimeCalculated}</b>
+      <b>{avgRelaxTime}</b>
     </div>
   );
 }
 
-function AvgSleepTime({avgSleepTimeCalculated})
+function AvgSleepTime({avgSleepTime})
 {
   return (
     <div>
       <h2>Avg Sleep Time</h2>
-      <b>{avgSleepTimeCalculated}</b>
+      <b>{avgSleepTime}</b>
     </div>
   );
 }
 
-function AvgWakeTime({avgWakeTimeCalculated})
+function AvgWakeTime({avgWakeTime})
 {
   return (
     <div>
       <h2>Avg Wake Time</h2>
-      <b>{avgWakeTimeCalculated}</b>
+      <b>{avgWakeTime}</b>
     </div>
   );
 }

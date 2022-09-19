@@ -18,26 +18,25 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
     newSavedDays.push(day);
 
     setSavedDays(newSavedDays);
-    saveToLocalStorage(newSavedDays);
+    saveDaysInLocalStorage(newSavedDays);
     calculateEveryAvg();
   }
 
   function calculateEveryAvg()
   {
-    const relaxTimeExtracted = [];
-    const sleepTimeExtracted = [];
-    const wakeTimeExtracted = [];
+    const relaxTime = [];
+    const sleepTime = [];
+    const wakeTime = [];
 
     savedDays.forEach((day) => {
-      relaxTimeExtracted.push(day.relaxTime);
-      sleepTimeExtracted.push(day.sleepTime);
-      wakeTimeExtracted.push(day.wakeTime);
+      relaxTime.push(day.relaxTime);
+      sleepTime.push(day.sleepTime);
+      wakeTime.push(day.wakeTime);
     })
 
-    console.log(relaxTimeExtracted);
-    setAvgRelaxTime(calculateAvg(relaxTimeExtracted));
-    setAvgSleepTime(calculateAvg(sleepTimeExtracted));
-    setAvgWakeTime(calculateAvg(wakeTimeExtracted));
+    setAvgRelaxTime(calculateAvg(relaxTime));
+    setAvgSleepTime(calculateAvg(sleepTime));
+    setAvgWakeTime(calculateAvg(wakeTime));
   }
 
   function calculateAvg(hoursMinutesArray)
@@ -71,7 +70,7 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
     return result;
   }
 
-  function saveToLocalStorage(savedDaysArray)
+  function saveDaysInLocalStorage(savedDaysArray)
   {
     const savedDaysArrayJson = JSON.stringify(savedDaysArray);
     localStorage.setItem("savedDays", savedDaysArrayJson);
