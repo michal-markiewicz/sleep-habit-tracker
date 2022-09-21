@@ -4,6 +4,11 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
 {
   function submitData()
   {
+    if (formValidation() === false)
+    {
+      return console.log("Form data is not correct");
+    }
+
     const date = document.getElementById('user-input-date');
     const relaxTime = document.getElementById('user-input-relax-time');
     const sleepTime = document.getElementById('user-input-sleep-time');
@@ -73,6 +78,76 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
 
     const result = `${formatHours}:${formatMinutes}`;
     return result;
+  }
+
+  function formValidation()
+  {
+    const dateInput = document.getElementById('user-input-date');
+    const relaxTimeInput = document.getElementById('user-input-relax-time');
+    const sleepTimeInput = document.getElementById('user-input-sleep-time');
+    const wakeTimeInput = document.getElementById('user-input-wake-time');
+
+    let noErrors = true;
+
+    function invalidInputValue(input)
+    {
+      input.style.backgroundColor = "#a83232";
+      noErrors = false;
+    }
+
+    if (dateInput.value === '')
+    {
+      invalidInputValue(dateInput);
+    }
+
+    function isTimeFormatCorrect(input)
+    {
+      const timeFormat = /^[0-9]{1,2}[:][0-9]{1,2}$/;
+      const hoursPattern = /^[0-9]{1,2}/;
+      const minutesPattern = /[0-9]{1,2}$/;
+
+      if (input.value.match(timeFormat) === null)
+      {
+        invalidInputValue(input);
+      }
+      else 
+      {
+        let hours = input.value.match(hoursPattern);
+        hours = hours[0];
+  
+        let minutes = input.value.match(minutesPattern);
+        minutes = minutes[0];
+  
+        if (hours > 23)
+        {
+          invalidInputValue(input);
+        }
+  
+        if (minutes > 59)
+        {
+          invalidInputValue(input);
+        }
+      }
+
+    }
+
+    isTimeFormatCorrect(relaxTimeInput);
+    isTimeFormatCorrect(sleepTimeInput);
+    isTimeFormatCorrect(wakeTimeInput);
+
+    if (noErrors === true)
+    {
+      dateInput.style.backgroundColor = "#DFF6FF";
+      relaxTimeInput.style.backgroundColor = "#DFF6FF";
+      sleepTimeInput.style.backgroundColor = "#DFF6FF";
+      wakeTimeInput.style.backgroundColor = "#DFF6FF";
+
+      return noErrors;
+    }
+    else if (noErrors === false)
+    {
+      return noErrors;
+    }
   }
 
   function formatNumberToTwoDigits(num)
