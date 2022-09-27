@@ -5,6 +5,14 @@ body
   font-family: 'Open Sans', sans-serif;
 }
 
+.canvas 
+{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 95%;
+  max-width: 1000px;
+}
+
 /* App component */
 
 #app 
@@ -123,7 +131,7 @@ body
 
 /* Media Queries */
 
-@media only screen and (min-width: 1000px)
+@media only screen and (min-width: 600px)
 {
   .flexbox-container
   {

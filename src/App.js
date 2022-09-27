@@ -1,6 +1,7 @@
 import { ShowData } from './ShowData.js';
 import { UserInput } from './UserInput.js';
 import { useState } from 'react';
+import { BarChart } from './BarChart.js';
 import './App.css';
 
 function App()
@@ -20,6 +21,7 @@ function App()
         <UserInput savedDays={savedDays} setSavedDays={setSavedDays} setAvgRelaxTime={setAvgRelaxTime} setAvgSleepTime={setAvgSleepTime} setAvgWakeTime={setAvgWakeTime} />
         <ShowData avgRelaxTime={avgRelaxTime} avgSleepTime={avgSleepTime} avgWakeTime={avgWakeTime} />
       </div>
+        <BarChart />
     </div>
   );
 }

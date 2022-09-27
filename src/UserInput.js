@@ -194,6 +194,11 @@ export function UserInput({savedDays, setSavedDays, setAvgRelaxTime, setAvgSleep
         <input type="text" id="user-input-wake-time"></input>
       </div>
 
+      <div className="user-input-container">
+        <label htmlFor="user-input-quality">Sleep quality (1 - 10)</label>
+        <input type="number" id="user-input-quality" min="1" max="10"></input>
+      </div>
+
       <div id="button-container">
         <button id="submit-button" onClick={submitData}>Submit</button>
       </div>
